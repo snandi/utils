@@ -47,4 +47,24 @@
        	  characters of the commit ids)
    (e) 
 
+Branch/Checkout/Collaborate
+---------------------------
+1. Checkout a branch for a particular purpose
+   git checkout -b addPlot
+2. Make changes to scripts in this branch
+   git add changedScript.R 
+3. Commit these changes to branch "addPlot"
+   git commit -m 'Added plot'
+   These changes have been committed to this branch locally. 
+4. To push this branch to remote repository
+   git push origin addPlot
+   On github it will show 2 branches, one master, one addPlot
+5. To merge the two branches locally
+   git checkout master               ## now you are on master
+   git merge addPlot
+   git push origin master            ## to push merged master
+6. To delete branch from remote repository
+   git push origin --delete addPlot
+7. To delete branch from local repository
+   git branch -d addPlot
 
