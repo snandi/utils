@@ -1,0 +1,21 @@
+1] To merge 2 pdf files and create a new one:
+   pdftk File1.pdf File2.pdf cat output OutputFile.pdf
+
+2] To rotate the entire pdf file 90 degrees clockwise:
+   pdftk Input.pdf cat 1-endE output Output.pdf
+   
+3] To rotate the entire pdf file 180 degrees clockwise:
+   pdftk Input.pdf cat 1-endS output Output.pdf		## E: 90 degrees, S: 180 degrees
+
+4] To rotate a few pages (1 - p) of the pdf file 180 degrees clockwise and the rest as is:
+   pdftk Input.pdf cat 1-pS (p+1)-end output Output.pdf
+
+5] To extract pages from a pdf file (e.g., extract pages 3, 4 and 5 into a new pdf):
+   pdftk input.pdf cat 3-5 output final.pdf
+
+6] To remove pages from a PDF file (e.g., remove page 3 and create a new pdf without the page):
+   pdftk input.pdf cat 1-2 4-end output final.pdf
+
+7] To insert File 2 between pages 2 and 3 of File1:
+   pdftk File1 cat 1-2 output Temp1; pdftk File2 cat 3-4 output Temp2; pdftk Temp1 File2 Temp2 cat output FinalOutput.pdf; rm Temp*
+
