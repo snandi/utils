@@ -1,0 +1,13 @@
+1. condor_submit submitFile.txt
+
+2. condor_submit_dag dagSubmit.dag
+
+3. To monitor condor jobs:
+   watch condor_q snandi
+
+4. To monirot condor queue priority:
+   condor_userprio -usage -allusers
+
+5. To check how many CPU hours used:
+   condor_userprio -usage -allusers | grep snandi
+
