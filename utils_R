@@ -1,0 +1,65 @@
+#######################################################################################################
+*] To install R on ubuntu 14.04:
+   Add and entry deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu trusty/ in your /etc/apt/sources.list file
+   (example http://cran.stat.ucla.edu/bin/linux/ubuntu trusty/)
+   Then do sudo apt-get update
+   Then do sudo apt-get install r-base 
+
+   If you get a GPG error: http://cran.stat.ucla.edu trusty/ Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 51716619E084DAB9, then do the following:
+   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+
+*] To run R programs from command line:
+   R CMD BATCH RScript.R > RScript.Rout # The .Rout is optional.
+
+   To run R programs from command line, with arguments:
+   R CMD BATCH '--args a=1 b=c(2,5,6)' RScript.R RScript.out &
+   # For an example, see ~/Project_CurveReg/RScripts_CurveReg/RScript09-01_Mflorum_Registration.R
+   Need to include the following code chunk:
+   Args <- (commandArgs(TRUE))
+   for(i in 1:length(Args)) eval(parse(text = Args[[i]]))
+
+   To run it remotely from and continue running it even after logging out of server:
+   nohup R CMD BATCH RScript.R &
+   Then type "exit" to exit the terminal
+
+*] Install R packages from .tar.gz file after adding NAMESPACE
+   According to the R documentation for writing extensions, all packages destined for version 3.0.0 and 
+   later must contain a NAMESPACE file. If you download an R package that gives you the above error, 
+   here is what you should try: 
+
+   1. Untar the package:
+   tar -xvf the_package.tar.gz
+
+   2. Add a NAMESPACE file with the line exportPattern( "." ):
+   cd the_package
+   echo 'exportPattern( "." )' > NAMESPACE
+   cd ..
+   
+   3. Re-tar the package:
+   tar -zcf the_package.tar.gz the_package
+   
+   4. Try and install it again.
+   R CMD INSTALL the_package.tar.gz
+
+   5. To check which version of Package loaded in R, do
+   packageVersion("R-package")
+
+*] To install R packages from github if devtools cannot be installed:
+   1. git clone git://github.com/kbroman/broman
+   2. R CMD build broman
+   3. R CMD INSTALL broman_0.59-5.tar.gz
+
+*] To install RCurl and XML packages in R, you should install the following on ubuntu:
+   sudo apt-get install libcurl4-openssl-dev libxml2-dev
+
+*] TO BUILD R PACKAGES ON RSTUDIO (ESSENTIAL STEPS)
+   1. Filenames and function names should be the same
+   2. Add the line #'@export before the function definition, to export that function
+   3. Add a documentation file with detailed descriptions, and argument requirements
+   4. In Build > Configure Build Tools, uncheck "Use devtools package functions if available" and check "Generate documentation with roxygen". In Configure, uncheck "Use roxygen to develop vignettes".
+   4. Click "Build & Reload" in Build.
+   5. To build .tar.gz click on "Build source package" in Build.
+   6. To check package comprehensibly and build the manual, click on "Check package" in Build.
+   7. If the package manual is not created automatically, do it from command prompt
+      R CMD Rd2pdf packageName
+

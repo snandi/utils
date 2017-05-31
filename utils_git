@@ -1,0 +1,50 @@
+*] GIT commands
+   (a) Add a connection to your friend’s version of the github repository, if you haven’t already:
+       Go to ~/allez/, then type
+       git remote add atbroman git://github.com/atbroman/allez
+   (b) Pull his/her changes:
+       git pull atbroman master
+   (c) Push them back to your github repository:
+       git push
+   
+   To start using git, use Karl Bromans introductory slides. 
+   After doing git-init in an already existing folder, set up the github repository. 
+   Run the following command: ssh-keygen -t rsa -C "nandi@stat.wisc.edu"
+   Then add the key from the file .ssh/id_rsa.pub to the github settings (SSH keys)
+   Run: git remote add origin https://github.com/snandi/RScripts_Header.git, but this step did not work on lmcg. So, 
+   Run: git remote rm origin, then run
+   Run: git remote add origin git@github.com:snandi/RScripts_Header.git
+   Before doing git push -u origin master, run:
+   eval "$(ssh-agent -s)"
+   ssh-add
+   git push -u origin master
+
+   To clone an existing repository on github:
+   git clone git@github.com:snandi/RScripts_Header RScripts
+
+   To set up git on a new Project
+   (1) cd Project_QualityScore
+   (2) git init
+   (3) cp .gitignore from somewhere
+   (4) Set up a git repository on github (preferably by the same name)
+   (5) git remote add origin git@github.com:snandi/Project_QualityScore.git
+   (6) git add stuff
+   (7) git commit -m "First commit"
+   (8) git pull --rebase origin master
+   (9) git push origin master
+
+   To Collaborate
+   --------------
+   (a) git log: Display the entire commit history using the default formatting. If the output takes 
+   up more than one screen, you can use Space to scroll and q to exit.
+   (b) git log --oneline: Condense each commit to a single line. This is useful for getting a high-level 
+   overview of the project history.
+   (c) git log <file>: Only display commits that include the specified file. This is an easy way to 
+   see the history of a particular file.
+   (d) To fix a broken version of a file, do:
+       1. git log file.R
+       2. git diff <revision_1>:file.R <revision_2>:file.R (The revision_1 and _2 are first 6 or 7 
+       	  characters of the commit ids)
+   (e) 
+
+
