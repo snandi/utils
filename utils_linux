@@ -1,3 +1,9 @@
+*] To install a software from rpm package locally in home directory:
+   1. Download the rpm in ~/local/ folder
+   2. Do rpm2cpio package.rpm | cpio -idv
+      This installs in /local/usr/bin/
+   3. Add the path in .bashrc as:PATH=$PATH:$HOME/local/usr/bin
+
 *] To change the prompt on the shell, to display the current directory, do:
    $ PS1='\h:$( pwd )\$ '
    It will only change for the current terminal, as the .bashrc and .bash_profile files are not writable.
