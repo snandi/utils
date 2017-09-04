@@ -1,0 +1,24 @@
+## This script contains the admin related steps for configuring parakeet after moving to Seattle
+
+##########################################################
+## Download and install R
+##########################################################
+1. Download R-3.4.1.tar.gz from https://cran.r-project.org/src/base/R-3/ into folder ~/local/
+2. Go to ~/local/
+3. $ tar -xvzf R-3.4.1.tar.gz
+4. Go to ~/local/R-3.4.1/
+5. $ sudo ./configure --enable-R-shlib --prefix=/usr/local/bin
+6. $ sudo make prefix=/usr/local/bin
+7. $ sudo make install prefix=/usr/local/bin
+8. This installs R in /usr/local/bin. The --enable-R-shlib is for rstudio to run.
+9. Add PATH=$PATH:/usr/local/bin/lib64/R/bin to .bashrc
+##########################################################
+
+##########################################################
+## Download and install Rstudio
+##########################################################
+1. Download RStudio 1.0.153 - Fedora/Redhat7/ from https://www.rstudio.com/products/rstudio/download/#download to ~/local/
+2. Go to ~/local/
+3. $ sudo yum install rstudio-1.0.153-x86_64.rpm
+
+
