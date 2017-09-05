@@ -21,4 +21,16 @@
 2. Go to ~/local/
 3. $ sudo yum install rstudio-1.0.153-x86_64.rpm
 
+##########################################################
+## Download and install Cisco VPN
+##########################################################
+1. Follow the instructions on UW website: https://kb.wisc.edu/helpdesk/page.php?id=9120
+2. Install pangox: sudo yum -y install pangox-compat
+
+##########################################################
+## Download and install NoMachine
+##########################################################
+1. Download NoMachine from https://www.nomachine.com/download/download&id=14 to ~/local/
+2. Install it: $ sudo rpm -ivh nomachine_5.3.10_6_x86_64.rpm
+3. Open NoMachine client and connect to linuxrdt2.biostat.wisc.edu with SSH protocol and password authentication
 
