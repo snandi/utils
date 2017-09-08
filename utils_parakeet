@@ -34,3 +34,9 @@
 2. Install it: $ sudo rpm -ivh nomachine_5.3.10_6_x86_64.rpm
 3. Open NoMachine client and connect to linuxrdt2.biostat.wisc.edu with SSH protocol and password authentication
 
+##########################################################
+## To create R packages
+##########################################################
+1. install.packages('roxygen2')
+2. sudo yum install texlive-collection-xetex
+3. sudo yum install texlive-latex
