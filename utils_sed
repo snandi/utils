@@ -17,4 +17,5 @@
 *] To search and replace a string in multiple files
    sed -i.bak 's/FluoroscanningPlots/FscanPlots/g' *.R ## Replaced FluoroscanningPlots with FscanPlots in all
 						       ## R scripts
-
+*] To search and replace quotes from a large file:
+   sed -i '.bak' 's/"//g' file.csv
